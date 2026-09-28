@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Farzan Mohammadi — Software &amp; Reverse Engineer</title>
+<meta name="description" content="Software engineer, reverse engineer, and AI/ML researcher. Web and mobile anti-bot, fingerprinting, deobfuscation, backend engineering, and LLM research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;--surface:#fafbfc;--surface-2:#f4f6f8;--border:#e7e9ee;
+    --text:#161a1f;--muted:#606a78;--accent:#2f6bff;--accent-2:#7b3ff2;
+    --accent-soft:#eef2ff;--radius:16px;--maxw:840px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d0f13;--surface:#14171d;--surface-2:#171b22;--border:#242a34;
+      --text:#e9ecf2;--muted:#98a2b2;--accent:#6b9bff;--accent-2:#a98bff;
+      --accent-soft:#161d2e;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.62;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .topbar{height:4px;background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:52px 24px 76px;}
+
+  header{display:flex;gap:26px;align-items:center;flex-wrap:wrap;}
+  .avatar,.avatar-fallback{width:112px;height:112px;border-radius:50%;flex:none;
+    border:3px solid var(--bg);box-shadow:0 0 0 2px var(--border), 0 10px 30px rgba(47,107,255,.14);}
+  .avatar{object-fit:cover;background:var(--accent-soft);}
+  .avatar-fallback{display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#fff;font-weight:800;font-size:38px;letter-spacing:.02em;}
+  .head-text h1{margin:0 0 5px;font-size:30px;font-weight:800;letter-spacing:-0.025em;}
+  .head-text .role{margin:0;font-weight:600;font-size:15.5px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .head-text .loc{margin:4px 0 0;color:var(--muted);font-size:14px;}
+
+  .lead{margin:26px 0 0;font-size:16.5px;color:var(--text);max-width:66ch;}
+
+  .contact{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0;font-size:13.5px;}
+  .contact a{color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;gap:7px;
+    padding:7px 13px;border:1px solid var(--border);border-radius:999px;background:var(--surface);
+    transition:all .16s ease;}
+  .contact a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-1px);}
+  .contact a.cv{color:var(--accent);border-color:var(--accent);background:var(--accent-soft);font-weight:600;}
+
+  section{margin-top:46px;}
+  h2{display:flex;align-items:center;gap:10px;font-size:12.5px;text-transform:uppercase;
+    letter-spacing:0.12em;color:var(--muted);font-weight:700;margin:0 0 20px;}
+  h2::before{content:"";width:16px;height:3px;border-radius:2px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+
+  .timeline{position:relative;padding-left:22px;}
+  .timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--border);}
+  .job{position:relative;margin-bottom:26px;}
+  .job:last-child{margin-bottom:0;}
+  .job::before{content:"";position:absolute;left:-22px;top:7px;width:10px;height:10px;border-radius:50%;
+    background:var(--bg);border:2.5px solid var(--accent);}
+  .job-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;}
+  .job-title{font-weight:700;font-size:16px;}
+  .job-org{color:var(--accent);font-weight:500;}
+  .job-meta{color:var(--muted);font-size:13px;white-space:nowrap;}
+  ul{margin:9px 0 0;padding-left:18px;}
+  li{margin:5px 0;}
+  li::marker{color:var(--accent);}
+
+  .card{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    padding:16px 18px;border:1px solid var(--border);border-radius:var(--radius);
+    background:var(--surface);margin-bottom:12px;transition:border-color .16s ease;}
+  .card:last-child{margin-bottom:0;}
+  .card:hover{border-color:var(--accent);}
+  .card .deg{font-weight:700;}
+  .card .sub{color:var(--muted);font-size:14px;margin-top:2px;}
+  .card .meta{color:var(--muted);font-size:13px;white-space:nowrap;}
+
+  .pub{padding:16px 18px;border:1px solid var(--border);border-radius:var(--radius);
+    background:var(--surface);margin-bottom:12px;}
+  .pub:last-child{margin-bottom:0;}
+  .pub-title{font-weight:700;}
+  .pub-venue{color:var(--muted);font-size:13.5px;margin:3px 0 8px;}
+  .pub a{color:var(--accent);text-decoration:none;font-size:13.5px;font-weight:500;}
+  .pub a:hover{text-decoration:underline;}
+
+  .skills{display:grid;gap:10px;}
+  .skill-row{display:grid;grid-template-columns:158px 1fr;gap:14px;align-items:start;}
+  .skill-label{font-weight:600;font-size:13px;color:var(--accent);padding:3px 0;}
+  .skill-val{color:var(--muted);font-size:14px;}
+
+  footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--border);
+    color:var(--muted);font-size:13px;text-align:center;}
+
+  @media (max-width:560px){
+    .wrap{padding:34px 18px 58px;}
+    .skill-row{grid-template-columns:1fr;gap:2px;}
+    .job-meta{white-space:normal;}
+    .avatar,.avatar-fallback{width:88px;height:88px;}
+    .avatar-fallback{font-size:30px;}
+    .head-text h1{font-size:25px;}
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<div class="wrap">
+
+  <header>
+    <img src="profile.jpg" alt="Farzan Mohammadi" class="avatar"
+         onerror="this.outerHTML='<div class=&quot;avatar-fallback&quot;>FM</div>'">
+    <div class="head-text">
+      <h1>Farzan Mohammadi</h1>
+      <p class="role">Software Engineer · Reverse Engineer · AI/ML Researcher</p>
+      <p class="loc">Istanbul, Turkey</p>
+    </div>
+  </header>
+
+  <p class="lead">Backend and software engineer with around ten years of experience building large-scale platforms, custom frameworks, and production systems — from ERPs and booking platforms to my own PHP MVC framework and ORM. A genuine curiosity for how things work beneath the surface pulled me into applied security and reverse engineering, where I bring the same builder's mindset to anti-bot, fingerprinting, and client-integrity systems, turning hard, undocumented problems into working tools. I also keep one foot in research, with two peer-reviewed publications on evaluating large language model reasoning. I'm happiest solving problems where the target keeps moving and the answer isn't written down anywhere.</p>
+
+  <div class="contact">
+    <a href="Farzan_Mohammadi_CV_V2.pdf" class="cv" target="_blank" rel="noopener">↓&nbsp; Download CV (PDF)</a>
+    <a href="mailto:farzan.mohamadii@gmail.com">✉&nbsp; farzan.mohamadii@gmail.com</a>
+    <a href="https://www.linkedin.com/in/farzan-mohammadi-669382131" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/FarzanMohamadi" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://scholar.google.com/citations?hl=en&user=KYCIffIAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+  </div>
+
+  <section>
+    <h2>Education</h2>
+    <div class="card">
+      <div>
+        <div class="deg">M.Sc. Information Technology Engineering (E-commerce)</div>
+        <div class="sub">Khajeh Nasir Toosi University of Technology (KNTU) · Tehran, Iran</div>
+      </div>
+      <div class="meta">2020 – 2023</div>
+    </div>
+    <div class="card">
+      <div>
+        <div class="deg">B.Sc. Computer Engineering</div>
+        <div class="sub">Shahroud University of Technology (SUT) · Shahroud, Iran</div>
+      </div>
+      <div class="meta">2015 – 2019</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="timeline">
+
+      <div class="job">
+        <div class="job-head">
+          <span><span class="job-title">Reverse Engineer &amp; Web Engineer</span> · <span class="job-org">BlackScale Media</span></span>
+          <span class="job-meta">Dec 2024 – Present · Remote · Cyprus</span>
+        </div>
+        <ul>
+          <li>Conducted applied security research on the anti-automation, client-integrity, and request-authentication defenses of large-scale web and native (Android) platforms.</li>
+          <li>Deobfuscated large volumes of obfuscated, packed, and minified client-side JavaScript, reverse-engineering a major platform's dynamic module-loading and token-generation systems to recover their algorithms and request-construction logic.</li>
+          <li>Reverse-engineered fully XHR- and GraphQL-driven web application flows, reconstructing request/response structures and undocumented query schemas.</li>
+          <li>Built an automated parser that extracts request-construction logic from heavily bundled production JavaScript, and an automated dynamic parser that constructs and structures GraphQL queries from client bundles and simulates realistic end-to-end traffic.</li>
+          <li>Investigated the correlation between HTTP/2 and TLS fingerprints (JA3/JA4-style) and worked to replicate Chrome's TLS fingerprint from scripted clients to avoid protocol-level detection.</li>
+          <li>Bypassed SSL/TLS certificate pinning at the native (C/JNI) layer using Frida, hooking low-level socket and cryptographic functions rather than relying on Java-layer bypasses.</li>
+          <li>Rooted and jailbroke Android devices to enable low-level dynamic instrumentation and study app-specific anti-tampering, integrity-verification, and root-detection behavior.</li>
+          <li>Intercepted and reverse-engineered device/app attestation token generation and validation, including structural analysis of the underlying cryptographic schemes.</li>
+          <li>Applied Frida to hook runtime functions and recover the logic of obfuscated client-side algorithms and verification routines.</li>
+          <li>Analyzed client-side and native anti-analysis defenses, including transport-layer certificate pinning, and studied their detection and enforcement mechanisms.</li>
+          <li>Investigated automated-challenge and verification subsystems (interaction-based checkpoints) to understand their design and analysis surfaces.</li>
+          <li>Built a Chromium-based browser instrumentation harness to study browser fingerprinting surfaces and network-layer behavior under varied environment configurations.</li>
+          <li>Developed custom interception and comparison tooling (Burp-style, in Java) to study and diff scripted vs. native client flows in detail, with dedicated logging to detect request/response mismatches and humanize traffic for both web and app.</li>
+          <li>Reverse-engineered end-to-end request/response flows using Burp Suite and custom traffic-analysis tooling; decoded and documented undocumented request parameters and their integrity/verification logic, and designed an automated pipeline that parses protocol state and derives subsequent request steps programmatically.</li>
+          <li>Used Selenium and Puppeteer for browser-automation-based reverse engineering and controlled traffic reproduction, and built a PHP-based traffic-replay platform to reproduce and validate reverse-engineered flows in a reproducible test environment.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <span><span class="job-title">Senior Programmer</span> · <span class="job-org">SaadatRent</span></span>
+          <span class="job-meta">2023 – Jan 2025 · Tehran</span>
+        </div>
+        <ul>
+          <li>Led development of a Laravel platform for an international car-rental company: booking website, mobile app, and CRM.</li>
+          <li>Implemented database-level encryption with Libsodium and hardened handling of sensitive customer data.</li>
+          <li>Designed a custom nested-set trait for hierarchical data in Laravel 10, with query optimization for large trees.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <span><span class="job-title">CTO &amp; Senior Programmer</span> · <span class="job-org">Saman Ban Company</span></span>
+          <span class="job-meta">2018 – 2023 · Mashhad</span>
+        </div>
+        <ul>
+          <li>Designed and built a custom PHP MVC framework (routing engine and ORM) and a large-scale web-based ERP with 20+ integrated modules (CRM, supply chain, HR, finance).</li>
+          <li>Built a property-management system and an instant-messaging tool integrated with the project-management and CRM software.</li>
+          <li>Integrated IoT devices with the ERP system for secure device communication.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <span><span class="job-title">Backend Programmer</span> · <span class="job-org">Resalat Bank</span></span>
+          <span class="job-meta">2022 – 2023 · Tehran</span>
+        </div>
+        <ul>
+          <li>Led backend development of a social platform for bank customers.</li>
+          <li>Built a MySQL-to-Oracle query translation engine with a custom algorithm (&gt;95% accuracy).</li>
+          <li>Implemented end-to-end encryption for secure data transactions.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <span><span class="job-title">Web Developer (Remote)</span> · <span class="job-org">Mata Trading Company</span></span>
+          <span class="job-meta">2021 – 2022 · Dubai</span>
+        </div>
+        <ul>
+          <li>Led end-to-end development and customization of a BPMS platform, including user training and support.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <span><span class="job-title">Freelance Software Engineer</span> · <span class="job-org">Independent</span></span>
+          <span class="job-meta">2014 – 2023 · Remote</span>
+        </div>
+        <ul>
+          <li>Collaborated with HEC Montreal on a climate-data analysis project, producing geographical visualizations of US climate data in Python.</li>
+          <li>Delivered 10+ full-stack web applications and internal automation for a major newspaper organization.</li>
+          <li>Built a search engine over a local database in Java.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Publications</h2>
+    <div class="pub">
+      <div class="pub-title">LogiCue: Targeted Prompting for Improved Modal and Conditional Reasoning in LLMs</div>
+      <div class="pub-venue">Procedia Computer Science, Elsevier (ACLing 2025) · Dec 2025</div>
+      <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=KYCIffIAAAAJ&citation_for_view=KYCIffIAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">View publication →</a>
+    </div>
+    <div class="pub">
+      <div class="pub-title">Can We Predict LLM Reasoning Failures? Structural Predictability of Modal and Conditional Inference Errors</div>
+      <div class="pub-venue">KI 2026: 49th German Conference on Artificial Intelligence — Bremen · Aug 2026</div>
+      <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=KYCIffIAAAAJ&citation_for_view=KYCIffIAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener">View publication →</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <div class="skill-row"><div class="skill-label">Reverse Engineering</div><div class="skill-val">JavaScript deobfuscation, obfuscated/packed/minified code analysis, protocol &amp; application RE, anti-bot / anti-automation analysis, browser fingerprinting internals, TLS/certificate-pinning analysis (JA3/JA4)</div></div>
+      <div class="skill-row"><div class="skill-label">Security &amp; Analysis</div><div class="skill-val">Frida (dynamic instrumentation), Burp Suite, traffic analysis, Puppeteer, Selenium, attestation &amp; token-scheme analysis</div></div>
+      <div class="skill-row"><div class="skill-label">Languages</div><div class="skill-val">JavaScript, Node.js, Python, PHP, Java, SQL</div></div>
+      <div class="skill-row"><div class="skill-label">Frameworks &amp; Tools</div><div class="skill-val">Laravel, RESTful APIs, WebSockets, RabbitMQ, Kafka, Redis, ElasticSearch, Git</div></div>
+      <div class="skill-row"><div class="skill-label">Machine Learning</div><div class="skill-val">PyTorch, Scikit-learn, Pandas, NumPy, SciPy</div></div>
+      <div class="skill-row"><div class="skill-label">Databases</div><div class="skill-val">MySQL, MariaDB, Oracle, PostgreSQL, MongoDB</div></div>
+      <div class="skill-row"><div class="skill-label">Cloud &amp; DevOps</div><div class="skill-val">AWS, Microsoft Azure, Google Cloud Platform, Docker, Kubernetes</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <div class="card">
+      <div><div class="deg">IELTS</div><div class="sub">Overall Band 6.5 · IELTS Official</div></div>
+      <div class="meta">Jun 2023</div>
+    </div>
+    <div class="card">
+      <div><div class="deg">GRE General Test</div><div class="sub">ETS</div></div>
+      <div class="meta">Nov 2023</div>
+    </div>
+  </section>
+
+  <footer>© <span id="yr"></span> Farzan Mohammadi</footer>
+
+</div>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
